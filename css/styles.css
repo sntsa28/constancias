@@ -1,0 +1,89 @@
+:root {
+  --verde: #176b45;
+  --verde-oscuro: #0d4e31;
+  --fondo: #f2f6f4;
+  --texto: #17211c;
+  --gris: #647069;
+  --borde: #d8e1dc;
+  --blanco: #fff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--texto);
+  background: linear-gradient(135deg, #e6f2ec, var(--fondo));
+}
+
+.contenedor {
+  width: min(780px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 64px 0;
+}
+
+.tarjeta {
+  padding: clamp(24px, 5vw, 48px);
+  background: var(--blanco);
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(20, 55, 37, .12);
+}
+
+.icono {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  color: var(--blanco);
+  background: var(--verde);
+  font-size: 27px;
+  font-weight: 800;
+}
+
+h1 { margin: 0 0 8px; font-size: clamp(1.8rem, 5vw, 2.5rem); }
+.introduccion { margin: 0 0 30px; color: var(--gris); }
+label { display: block; margin-bottom: 8px; font-weight: 700; }
+.busqueda { display: flex; gap: 10px; }
+
+input, button { min-height: 48px; border-radius: 9px; font: inherit; }
+input {
+  flex: 1;
+  min-width: 0;
+  padding: 0 14px;
+  border: 1px solid var(--borde);
+  outline: none;
+}
+input:focus { border-color: var(--verde); box-shadow: 0 0 0 3px rgba(23, 107, 69, .14); }
+button, .boton {
+  padding: 0 22px;
+  border: 0;
+  color: var(--blanco);
+  background: var(--verde);
+  font-weight: 700;
+  cursor: pointer;
+}
+button:hover, .boton:hover { background: var(--verde-oscuro); }
+.estado { min-height: 24px; margin: 26px 0 12px; color: var(--gris); }
+.resultados { display: grid; gap: 12px; }
+
+.resultado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+}
+.resultado strong { overflow-wrap: anywhere; }
+.boton { display: inline-grid; place-items: center; min-height: 42px; border-radius: 8px; text-decoration: none; }
+
+@media (max-width: 580px) {
+  .contenedor { padding: 24px 0; }
+  .busqueda, .resultado { align-items: stretch; flex-direction: column; }
+  .boton { width: 100%; }
+}
